@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_58872_needit.UserAjax</api_name>
+        <client_callable>true</client_callable>
+        <description>Script Include to return details about the user. The calling client-side script passes a sys_id for a User table record.</description>
+        <name>UserAjax</name>
+        <script><![CDATA[var UserAjax = Class.create();
+UserAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	getEmail: function() {
+		var userRecord = new GlideRecord("sys_user");
+		userRecord.get(this.getParameter("sysparm_userID"));
+		return userRecord.email + '';
+	},
+
+    type: 'UserAjax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-12-12 02:39:35</sys_created_on>
+        <sys_id>9755cd231b250010a98ea9b4bd4bcb03</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UserAjax</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_9755cd231b250010a98ea9b4bd4bcb03</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-12-12 02:39:35</sys_updated_on>
+    </sys_script_include>
+</record_update>
